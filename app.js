@@ -78,6 +78,19 @@ let isRunning = false;
 function buildTimeline() {
   timeline = [];
 
+  //10 second prep phase
+  const firstExercise = routine[0];
+
+  timeline.push({
+    type: "PREP",
+    exercise: firstExercise.name,
+    substep: "Get into position!",
+    duration: 10,
+    image: firstExercise.image,
+    set: "",
+    totalSets: "",
+  });
+
   routine.forEach((exercise, exIndex) => {
     for (let set = 1; set <= exercise.sets; set++) {
       exercise.substeps.forEach((sub) => {
@@ -165,8 +178,17 @@ function loadStep() {
   const step = timeline[currentIndex];
   timeRemaining = step.duration;
 
-  document.getElementById("phaseTitle").innerText =
-    `${step.exercise} - ${step.type}`;
+  if (step.type === "WORK") {
+    document.getElementById("phaseTitle").innerText = step.exercise;
+  } else if (step.type === "REST") {
+    document.getElementById("phaseTitle").innerText = `${step.exercise} - Rest`;
+  } else if (step.type === "ADJUST") {
+    document.getElementById("phaseTitle").innerText =
+      "Prepare for Next Exercise";
+  } else if (step.type === "PREP") {
+    document.getElementById("phaseTitle").innerText =
+      `Prepare for ${step.exercise}`;
+  }
 
   document.getElementById("setInfo").innerText = step.set
     ? `Set ${step.set} / ${step.totalSets} (${step.substep})`
@@ -179,10 +201,12 @@ function loadStep() {
     workSound.play();
   } else if (step.type === "REST") {
     restSound.play();
+  } else if (step.type === "PREP") {
+    workSound.play();
   }
 
   //background color switch
-  document.body.classList.remove("work", "rest", "adjust");
+  document.body.classList.remove("work", "rest", "adjust", "prep");
 
   if (step.type === "WORK") {
     document.body.classList.add("work");
@@ -190,6 +214,8 @@ function loadStep() {
     document.body.classList.add("rest");
   } else if (step.type === "ADJUST") {
     document.body.classList.add("adjust");
+  } else if (step.type === "PREP") {
+    document.body.classList.add("prep");
   }
 
   //Update progress
