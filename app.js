@@ -179,7 +179,7 @@ function loadStep() {
   timeRemaining = step.duration;
 
   if (step.type === "WORK") {
-    document.getElementById("phaseTitle").innerText = step.exercise;
+    document.getElementById("phaseTitle").innerText = `${step.exercise} - Work`;
   } else if (step.type === "REST") {
     document.getElementById("phaseTitle").innerText = `${step.exercise} - Rest`;
   } else if (step.type === "ADJUST") {
