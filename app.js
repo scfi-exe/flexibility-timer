@@ -1,6 +1,8 @@
 // --------------------
 // ROUTINE DEFINITION
 // --------------------
+const workSound = new Audio("sounds/work.wav");
+const restSound = new Audio("sounds/rest.wav");
 
 const routine = [
   {
@@ -156,6 +158,13 @@ function loadStep() {
     : "";
 
   document.getElementById("exerciseImage").src = step.image || "";
+
+  // SOUND LOGIC
+  if (step.type === "WORK") {
+    workSound.play();
+  } else if (step.type === "REST") {
+    restSound.play();
+  }
 
   updateTimer();
 }
