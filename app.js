@@ -6,47 +6,62 @@ const restSound = new Audio("sounds/rest.wav");
 
 const routine = [
   {
-    name: "Frog Stretch",
+    name: "Frog Stretch (Dynamic)",
     image: "images/frog.png",
     sets: 3,
     substeps: [{ label: "Main", work: 20, rest: 30 }],
   },
   {
-    name: "Hip Openers",
+    name: "Hip Openers (Dynamic)",
     image: "images/hip.png",
     sets: 3,
-    substeps: [{ label: "Main", work: 20, rest: 30 }],
+    substeps: [
+      { label: "Left Leg", work: 20, rest: 5 },
+      { label: "Right Leg", work: 20, rest: 30 },
+    ],
   },
   {
-    name: "Hamstrings",
+    name: "Hamstrings (Dynamic)",
     image: "images/hamstring.png",
     sets: 3,
     substeps: [
-      { label: "Hamstring A", work: 20, rest: 30 },
-      { label: "Hamstring B", work: 20, rest: 30 },
+      { label: "Left Hamstring A", work: 20, rest: 5 },
+      { label: "Right Hamstring A", work: 20, rest: 5 },
+      { label: "Left Hamstring B", work: 20, rest: 5 },
+      { label: "Right Hamstring B", work: 20, rest: 30 },
     ],
   },
   {
-    name: "Calf Stretch",
+    name: "Calf Stretch (Dynamic)",
     image: "images/calf.png",
     sets: 3,
-    substeps: [{ label: "Main", work: 20, rest: 30 }],
+    substeps: [
+      { label: "Left Leg", work: 20, rest: 5 },
+      { label: "Right Leg", work: 20, rest: 30 },
+    ],
   },
   {
-    name: "Upper Body",
+    name: "Upper Body (Static)",
     image: "images/upper.png",
     sets: 3,
     substeps: [
-      { label: "Forearm / Pec", work: 20, rest: 30 },
-      { label: "Shoulder Behind", work: 20, rest: 30 },
-      { label: "Lats", work: 20, rest: 30 },
+      { label: "Left Forearm / Pec", work: 20, rest: 5 },
+      { label: "Right Forearm / Pec", work: 20, rest: 5 },
+      { label: "Left Shoulder Behind", work: 20, rest: 5 },
+      { label: "Right Shoulder Behind", work: 20, rest: 5 },
+      { label: "Lats (Left)", work: 20, rest: 5 },
+      { label: "Lats (Right)", work: 20, rest: 30 },
     ],
   },
   {
-    name: "Lower Back / Side",
+    name: "Lower Back / Side (Static)",
     image: "images/lowerback.png",
     sets: 3,
-    substeps: [{ label: "Main", work: 20, rest: 30 }],
+    substeps: [
+      { label: "Lower Back", work: 20, rest: 10 },
+      { label: "Left Shoulder - Side", work: 20, rest: 5 },
+      { label: "Right Shoulder - Side", work: 20, rest: 30 },
+    ],
   },
 ];
 
