@@ -93,7 +93,7 @@ function buildTimeline() {
       const nextExercise = routine[exIndex + 1];
 
       timeline.push({
-        type: "ADJUST",
+        type: "Prepare for Next Exercise",
         exercise: "Adjust",
         substep: `Next: ${nextExercise.name}`,
         duration: 30,
