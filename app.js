@@ -88,12 +88,14 @@ function buildTimeline() {
 
     // Adjust time between exercises
     if (exIndex < routine.length - 1) {
+      const nextExercise = routine[exIndex + 1];
+
       timeline.push({
         type: "ADJUST",
         exercise: "Adjust",
-        substep: "",
+        substep: `Next: ${nextExercise.name}`,
         duration: 30,
-        image: "",
+        image: nextExercise.image,
         set: "",
         totalSets: "",
       });
