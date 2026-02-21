@@ -55,7 +55,7 @@ const routine = [
   },
   {
     name: "Lower Back / Side (Static)",
-    image: "images/lowerback.png",
+    image: "images/lower.png",
     sets: 3,
     substeps: [
       { label: "Lower Back", work: 20, rest: 10 },
@@ -121,8 +121,8 @@ function buildTimeline() {
       const nextExercise = routine[exIndex + 1];
 
       timeline.push({
-        type: "Prepare for Next Exercise",
-        exercise: "Adjust",
+        type: "ADJUST",
+        exercise: nextExercise.name,
         substep: `Next: ${nextExercise.name}`,
         duration: 30,
         image: nextExercise.image,
@@ -184,7 +184,7 @@ function loadStep() {
     document.getElementById("phaseTitle").innerText = `${step.exercise} - Rest`;
   } else if (step.type === "ADJUST") {
     document.getElementById("phaseTitle").innerText =
-      "Prepare for Next Exercise";
+      `Prepare for ${step.exercise}`;
   } else if (step.type === "PREP") {
     document.getElementById("phaseTitle").innerText =
       `Prepare for ${step.exercise}`;
