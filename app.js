@@ -166,7 +166,26 @@ function loadStep() {
     restSound.play();
   }
 
+  //background color switch
+  document.body.classList.remove("work", "rest", "adjust");
+
+  if (step.type === "WORK") {
+    document.body.classList.add("work");
+  } else if (step.type === "REST") {
+    document.body.classList.add("rest");
+  } else if (step.type === "ADJUST") {
+    document.body.classList.add("adjust");
+  }
+
+  //Update progress
+  updateProgress();
+
   updateTimer();
+}
+
+function updateProgress() {
+  const percent = (currentIndex / timeline.length) * 100;
+  document.getElementById("progressBar").style.width = percent + "%";
 }
 
 function updateTimer() {

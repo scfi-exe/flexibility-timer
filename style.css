@@ -38,3 +38,31 @@ button {
 button:hover {
   background: #555;
 }
+
+body.work {
+  background: #1f3d2b; /* green-ish */
+}
+
+body.rest {
+  background: #3d2b1f; /* warm amber */
+}
+
+body.adjust {
+  background: #1f2b3d; /* blue-ish */
+}
+
+.progress-container {
+  width: 100%;
+  height: 8px;
+  background: #333;
+  margin-top: 10px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #4caf50;
+  transition: width 0.3s ease;
+}
